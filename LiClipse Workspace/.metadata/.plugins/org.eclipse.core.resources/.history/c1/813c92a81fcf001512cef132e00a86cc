@@ -1,0 +1,71 @@
+import urllib
+import codecs
+import sqlite3
+import json
+import sys
+import urllib2
+
+
+conn = sqlite3.connect('geodata.sqlite')
+cur = conn.cursor()
+
+cur.executescript('''
+    DROP TABLE IF EXISTS Locations;
+    CREATE TABLE IF NOT EXISTS Locations (data_hora TEXT, linha, latitude, longitude, velocidade);
+''')
+
+#jsonData = urlopen( url )
+jsonData = open('bus.json').read()
+
+url = 'http://dadosabertos.rio.rj.gov.br/apiTransporte/apresentacao/rest/index.cfm/obterTodasPosicoes'
+
+
+print (urllib.urlopen(url).read())
+#time.sleep(2)
+
+try:
+    #print jsonData.readlines()
+    jsonFile = json.loads( str(jsonData) )
+    
+except:
+    print('Ocorreu um erro ao ler o arquivo JSON')
+    sys.exit()
+
+
+fhand = codecs.open('where.js','w', "utf-8")
+fhand.write("myData = [\n")
+count = 0
+
+busLineFilter = raw_input("Digite a linha de onibus: ")
+
+for busFile in jsonFile['DATA']:
+    
+    linha      = str( busFile[2] )
+    linha      = str(linha).split('.')[0] 
+    
+    dataHora   = busFile[0]
+    latitude   = busFile[3]
+    longitude  = busFile[4]
+    velocidade = busFile[5]
+    
+    if (linha is None or linha == '') :
+        continue
+    
+    if ( busLineFilter is not None and busLineFilter.strip() != linha.strip() ):
+        continue
+    
+    print (linha)
+    title = 'Linha ' + linha + ' Hora/Minuto ' + str(dataHora) + ' Velocidade ' + str(velocidade)
+    
+    count = count + 1
+    if count > 1 : fhand.write(",\n")
+    
+    output = "[" + str(latitude) + "," + str(longitude) + ", '" + title + "']"
+    fhand.write(output)
+    
+    
+fhand.write("\n];\n")
+cur.close()
+fhand.close()
+
+print("Visualize it on a map.")

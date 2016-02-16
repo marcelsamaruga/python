@@ -1,0 +1,7 @@
+import matplotlib.pyplot as plt 
+
+year = [1850, 1900, 1950, 2000]
+population = [2.33, 6.5, 7.2, 8.9]
+
+plt.plot(year, population)
+plt.show() 

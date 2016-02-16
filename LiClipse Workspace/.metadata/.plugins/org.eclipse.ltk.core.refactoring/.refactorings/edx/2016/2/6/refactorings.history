@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;edx/edx/edx1.py&apos; to &apos;numpyEx.py&apos;" description="Rename resource &apos;edx1.py&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="edx/edx1.py" name="numpyEx.py" stamp="1454464077613" updateReferences="true"/>
+</session>

@@ -1,0 +1,6 @@
+import pandas as pd
+import urllib.request as req
+
+fileReader = req.urlopen('http://dadosabertos.rio.rj.gov.br/apiCOR/apresentacao/csv/nivel_dos_rios/nivel_rios_2014_03.csv')
+csvFile = fileReader.read()
+

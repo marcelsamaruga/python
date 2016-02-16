@@ -1,0 +1,23 @@
+import matplotlib.pyplot as plt 
+
+year = [1850, 1875, 1900, 1925, 1950, 1975, 2000, 2025]
+population = [2.33, 3, 6.5, 6,8, 7.2, 8,1, 8.9, 9.1]
+
+plt.plot(year, population)
+plt.show() 
+
+#clean what has showed in the show() function
+plt.clf()
+
+
+# draw a scatter Plot
+plt.scatter(year, population)
+plt.clf()
+
+
+# draw a histogram
+plt.hist(year)
+plt.clf()
+
+# bins divide the histogram into parts
+plt.hist(year, bins=5)
