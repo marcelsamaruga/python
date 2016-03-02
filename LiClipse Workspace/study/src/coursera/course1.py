@@ -65,6 +65,16 @@ except:
     x = 0
     print 'Invalid Number'
     
+# all the list of exceptions https://docs.python.org/2/tutorial/errors.html#handling-exceptions
+try:
+    txtFile= open('c:\texto_nao_existe.txt')
+except IOError:
+    print("Such file doesn't exist")
+except ValueError:
+    print "Could not convert data to an integer."
+    # throw new exception
+    raise IOError
+
 print x
 
 # functions
@@ -180,6 +190,31 @@ print addr('tableless.com.br','code/css','parameter=1')
 print addr('tableless.com.br', querystring='s=python')
 
 
+breakLine()
+
+def testVarArgs(first, second, *all):
+    print first
+    print second
+    print list(all)
+
+testVarArgs(1, 2, 3, 4, 5, 6, 7)    
+
+
+breakLine()
+
+# the last parameter indicates some kind of map. So it's possible to use the get function whenever parameter value used
+def bar(first, second, third, **options):
+    if options.get("action") == "sum":
+        print "The sum is: %d" % (first + second + third)
+
+    if options.get("number") == "first":
+        return first
+
+result = bar(1, 2, 3, action = "sum", number = "first")
+print "Result: %d" % result
+
+breakLine()
+
 # var args
 # invoke the function and send none or ilimited parameters in the end
 def div(content, **attributes):
@@ -213,3 +248,7 @@ print l[1] # Segundo elemento
 print l[:5] # Primeiros cinco elementos
 print l[-5:] # primeros cincos elementos
 print l[4::-1] # primeiros 5 de tras para frente
+
+
+# formatting numbers
+print('The order total comes to %.2f' % 123.4494444) # 123.45

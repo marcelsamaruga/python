@@ -112,7 +112,7 @@ print str(type(lista)) + " - " + str(type(dictonary))
 
 breakLine()
 
-#tuple are Immutable
+#tuple are Immutable: cannot add, delete or change values
 #list of tuple
 lista = []
 lista.append( ('A',1) )
@@ -136,7 +136,18 @@ lista = list()
 lista = { 'a':10, 'b':1, 'c':5, 'd':2 }
 print sorted(  [ (v,k) for (k,v) in lista.items() ]  )
 
+# .append(value) - appends element to end of the list
+# .count('x') - counts the number of occurrences of 'x' in the list
+# .index('x') - returns the index of 'x' in the list
+# .insert('y','x') - inserts 'x' at location 'y'
+# .pop() - returns last element then removes it from the list
+# .remove('x') - finds and removes first 'x' from list
+# .reverse() - reverses the elements in the list
+# .sort() - sorts the list alphabetically in ascending order, or numerical in ascending order
+
 breakLine()
+
+# set is a list with no duplicate values
 
 # common elements in a list
 l1 = [1,2,3,4,5,6,7,8,9]
@@ -148,7 +159,23 @@ print set(l1) & set(l2) #set([1, 3, 9, 5, 7])
 print set(l1)-set(l2) # set([10])
 print set(l2)-set(l1) #set([10])
 
+
+a = set(["Jake", "John", "Eric"])
+b = set(["John", "Jill"])
+
 breakLine()
+print 'Intersections'
+# intersection between two set of lists
+print a.intersection(b)
+
+# symetric_difference: shows only whats is different between two set of lists
+print 'Differences'
+print a.symmetric_difference(b)
+breakLine()
+
+# union shows (with no duplication) both lists 
+print 'Union'
+print list(a.union(b))
 
 # test all the possibilities
 import itertools

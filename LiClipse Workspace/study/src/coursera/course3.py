@@ -255,9 +255,9 @@ import json
 jsonPerson = json.loads( data )
 print jsonPerson["name"]
 print jsonPerson["phone"]["number"]
-
-breakLine()
     
+breakLine()
+
 list = '''
         [
             {
@@ -276,6 +276,22 @@ for value in jsonList:
     print value["id"], value["name"]
     
 breakLine()
+
+
+# to transform json object into a string object use the dumps method
+json_string = json.dumps( jsonList )
+print 'Json String \n', json_string
+
+breakLine()
+
+# to serializa the json file use the cPickle library
+import cPickle
+pickled_string = cPickle.dumps([1, 2, 3, "a", "b", "c"])
+print cPickle.loads(pickled_string)
+
+breakLine()
+
+
 
 while True:
     location = raw_input("Location:")

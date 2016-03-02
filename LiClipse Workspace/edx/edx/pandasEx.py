@@ -6,8 +6,9 @@ import urllib.request as req
 
 riverLevels = pd.read_csv('nivel_rios_2014_03.csv')
 
-# indexing the csv file by a column
-riverLevels = pd.read_csv('nivel_rios_2014_03.csv', index_col=0)
+# index_col: indexing the csv file by a column
+# low_memory: pandas doenst read all the type of the columns in the file. So increase the performance of the program
+riverLevels = pd.read_csv('nivel_rios_2014_03.csv', index_col=0, low_memory=False)
 #print(help(pd.read_csv))
 
 #The single bracket version gives a Pandas Series, the double bracket version gives a Pandas DataFrame.
