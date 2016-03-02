@@ -1,2 +1,2 @@
 eclipse.preferences.version=1
-prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<watchExpressions>\r\n<expression enabled\="true" text\="html"/>\r\n</watchExpressions>\r\n
+prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<watchExpressions>\r\n<expression enabled\="true" text\="subData[['S3AQ3B1']]"/>\r\n<expression enabled\="true" text\="fullData[ (fullData['AGE'] &gt;\= 18) &amp; (fullData['AGE'] &lt;\= 21)]"/>\r\n</watchExpressions>\r\n

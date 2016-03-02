@@ -1,0 +1,10 @@
+*.v1_sys_astdelta
+*.snap
+*.history*
+*.metadata*
+*.plugins*
+*\v1_7dn7h9re6mxzzbcahnwwew1sr\*
+*\python.pydevsysteminfo
+*.pydevproject
+*.project
+*.org.eclipse*
